@@ -47,7 +47,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2026-06-14j" />
+  <link rel="stylesheet" href="styles.css?v=2026-06-14k" />
 
   <!-- Structured Data: Person -->
   <script type="application/ld+json">
@@ -184,6 +184,19 @@
 </head>
 <body>
   <a class="skip" href="#term">Skip to terminal</a>
+
+  <!-- Boot intro: WebGL globe locks on Houston. Hidden by default; activated by JS only on first visit per session. -->
+  <div id="boot" class="boot-overlay" aria-hidden="true" hidden>
+    <canvas id="boot-canvas" class="boot-canvas"></canvas>
+    <div class="boot-readout" aria-hidden="true">
+      <div class="boot-line" data-step="0">&gt; initializing</div>
+      <div class="boot-line" data-step="1">&gt; scanning earth</div>
+      <div class="boot-line" data-step="2">&gt; target acquired</div>
+      <div class="boot-line" data-step="3">&gt; 29.7604°N, 95.3698°W</div>
+      <div class="boot-line" data-step="4">&gt; HOUSTON, TX</div>
+      <div class="boot-line boot-lock" data-step="5">&gt; TARGET LOCKED</div>
+    </div>
+  </div>
 
   <header class="hero">
     <div class="hero-inner">
@@ -326,6 +339,92 @@
     </div>
   </footer>
 
-  <script src="app.js?v=2026-06-14j"></script>
+  <!-- Boot animation: WebGL globe spy-locator (COBE, ~5KB). Runs once per session, respects reduced-motion, fails closed. -->
+  <script type="module">
+    (async () => {
+      const overlay = document.getElementById("boot");
+      if (!overlay) return;
+
+      const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const seen = sessionStorage.getItem("boe.intro") === "1";
+      if (reduced || seen) return; // do not even show overlay
+
+      // Reveal overlay
+      overlay.hidden = false;
+      requestAnimationFrame(() => overlay.classList.add("boot-in"));
+
+      // Hard fallback: if anything stalls, force-hide the overlay
+      const dismiss = () => {
+        overlay.classList.add("boot-out");
+        overlay.addEventListener("transitionend", () => { overlay.hidden = true; }, { once: true });
+        sessionStorage.setItem("boe.intro", "1");
+      };
+      const fallback = setTimeout(dismiss, 2800);
+
+      try {
+        const { default: createGlobe } = await import("https://esm.sh/cobe@0.6.4");
+
+        const canvas = document.getElementById("boot-canvas");
+        const size = Math.min(window.innerWidth * 0.7, window.innerHeight * 0.7, 520);
+        canvas.style.width = size + "px";
+        canvas.style.height = size + "px";
+
+        // Houston, TX
+        const HOUSTON_LAT = 29.7604;
+        const HOUSTON_LNG = -95.3698;
+        const targetPhi = (HOUSTON_LNG * Math.PI) / 180 * -1; // bring Houston to front
+        const startPhi  = targetPhi - 1.6;                      // start ~90° east, sweep west
+
+        let phi = startPhi;
+        const theta = 0.32; // slight north tilt so US faces camera
+
+        const globe = createGlobe(canvas, {
+          devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
+          width: size * 2,
+          height: size * 2,
+          phi,
+          theta,
+          dark: 1,
+          diffuse: 1.2,
+          mapSamples: 16000,
+          mapBrightness: 5,
+          baseColor:    [0.22, 0.28, 0.36],
+          markerColor:  [0.49, 0.91, 0.53], // accent green
+          glowColor:    [0.06, 0.12, 0.10],
+          markers: [{ location: [HOUSTON_LAT, HOUSTON_LNG], size: 0.09 }],
+          onRender: (state) => { state.phi = phi; },
+        });
+
+        // Stagger reveal readout lines
+        const lines = overlay.querySelectorAll(".boot-line");
+        const schedule = [80, 220, 900, 1100, 1300, 1500]; // ms per line
+        lines.forEach((el, i) => setTimeout(() => el.classList.add("on"), schedule[i] || 0));
+
+        // Tween phi to lock on Houston (~1.0s, easeOutCubic)
+        const t0 = performance.now();
+        const duration = 1000;
+        const tween = (now) => {
+          const t = Math.min(1, (now - t0) / duration);
+          const eased = 1 - Math.pow(1 - t, 3);
+          phi = startPhi + (targetPhi - startPhi) * eased;
+          if (t < 1) requestAnimationFrame(tween);
+        };
+        requestAnimationFrame(tween);
+
+        // After last readout line, exit
+        setTimeout(() => {
+          clearTimeout(fallback);
+          dismiss();
+          setTimeout(() => { try { globe.destroy(); } catch {} }, 800);
+        }, 2000);
+      } catch (e) {
+        // WebGL unavailable or CDN failed → just dismiss
+        clearTimeout(fallback);
+        dismiss();
+      }
+    })();
+  </script>
+
+  <script src="app.js?v=2026-06-14k"></script>
 </body>
 </html>
