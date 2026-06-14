@@ -1,0 +1,62 @@
+# Bryan Weaver (bryanofearth)
+
+> Senior software developer in Houston, Texas, with roughly 12 years of production experience. Currently at Pennymac shipping developer tooling and leading LLM adoption org-wide. On the side, co-founded Bulletproof Test Prep, founded Vote Out Everyone LLC (VoteOut), and authored the open-source Claude Agent Kit and Mewscast.
+
+Primary site: https://bryanofearth.com
+Resume: https://bryanweaver.github.io/resume/
+GitHub: https://github.com/bryanweaver
+LinkedIn: https://www.linkedin.com/in/bryanofearth
+Stack Overflow: https://stackoverflow.com/users/2059365/bryanofearth
+Email: weaverb9@gmail.com
+
+## Current focus
+
+- Maintained at: https://bryanofearth.com/now.json
+- Building Google Ads launch for Bulletproof Test Prep
+- Reading "Build a Large Language Model (from Scratch)" by Sebastian Raschka
+- Learning agent evaluation frameworks
+
+## Employment
+
+- **Pennymac** — Senior Application Developer (Jun 2022 – present, remote). Built cursor-agent-kit automating development across 60+ repos; developed an AI-powered merge request reviewer integrated into CI/CD; leads LLM adoption org-wide via training and guidance.
+- **Loomis Armored US** — Senior Full Stack Developer → Software Development Manager (Feb 2020 – Jun 2022). Managed a 3-engineer team owning 25+ applications; introduced clean architecture across greenfield projects.
+- **YNET Consulting LLC** — Software Consultant (Apr 2018 – Feb 2020).
+- **We Are Mammoth** — Product Support & Maintenance Engineer (Apr 2016 – Apr 2017).
+- **Entrance Consulting** — Software Consultant (Jul 2013 – Jan 2016).
+
+## Education
+
+- B.S. Computer Science, University of Houston, 2013.
+
+## Projects
+
+### Bulletproof Test Prep — https://bulletprooftestprep.com
+Co-founder (since Sep 2025). Adaptive learning SaaS that helps aspiring home inspectors pass the National Home Inspector Examination (NHIE). Multi-tenant Next.js + Supabase platform with an intelligent quiz engine, taxonomy-based mastery tracking, Stripe-powered subscriptions, and an AI-driven customer support system built on Claude. Supports B2C and B2B white-label deployments.
+
+### VoteOut (Vote Out Everyone LLC) — https://voteouteveryone.com
+Founder (since Apr 2026). Nonpartisan civic-tech platform. Address-based ballot lookup identifies every federal and state incumbent. Provides printable pocket cards and a Stripe + Lob–powered postcard product that ships paper ballots to voters. Integrates Google Civic, OpenFEC, and OpenStates APIs. Built with Next.js 14 (App Router), TypeScript, Supabase, and Vercel.
+
+### Claude Agent Kit — https://github.com/bryanweaver/claude-agent-kit
+Open-source Claude Code plugin that coordinates seven specialized AI agents and twelve workflow skills for parallel feature shipping, testing, and deployment. Published and live.
+
+### Mewscast — https://github.com/bryanweaver/mewscast
+Autonomous AI journalism bot, live as @mewscast on Bluesky. End-to-end agent that researches, drafts, and publishes news posts to X and Bluesky without human intervention. Walter Croncat persona. Uses Grok for image generation and Claude for research, drafting, and editorial reasoning.
+
+## Stack
+
+Languages: TypeScript, JavaScript, Python, SQL, C#.
+Frontend: React, Next.js (App Router), Tailwind CSS, shadcn/ui.
+Backend: Node.js, Next.js API Routes, serverless.
+Data: PostgreSQL, Supabase.
+Cloud: AWS, Vercel, Cloudflare.
+AI / LLM: Claude API, Grok API, agent orchestration.
+Payments / ops: Stripe, Lob.
+
+Experience markers: ~12 years total; ~8 years React; ~6 years TypeScript; ~5 years Python.
+
+## Optional
+
+- Site source: https://github.com/bryanweaver/bryanofearth
+- Resume source: https://github.com/bryanweaver/resume
+- Sitemap: https://bryanofearth.com/sitemap.xml
+- Open Graph image: https://bryanofearth.com/og.png
