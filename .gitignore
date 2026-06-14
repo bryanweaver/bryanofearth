@@ -15,6 +15,12 @@ node_modules/
 dist/
 build/
 
+# Wrangler state
+.wrangler/
+
+# Claude Code workspace
+.claude/
+
 # Local secrets (just in case)
 .env
 .env.local
