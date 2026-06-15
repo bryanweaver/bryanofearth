@@ -31,60 +31,31 @@ html[data-theme="light"] {
 
 *, *::before, *::after { box-sizing: border-box; }
 
-/* BOOT INTRO — WebGL globe spy-locator */
-.boot-overlay {
+/* PERSISTENT BACKGROUND GLOBE — top-right, always rotating, sits behind content */
+.globe-bg {
   position: fixed;
-  inset: 0;
-  z-index: 100;
-  background: #0b0f14;
-  display: grid;
-  place-items: center;
-  opacity: 0;
+  top: -14vh;
+  right: -14vw;
+  z-index: 0;
   pointer-events: none;
-  transition: opacity 0.45s ease;
-}
-.boot-overlay.boot-in  { opacity: 1; }
-.boot-overlay.boot-out { opacity: 0; }
-.boot-canvas {
-  display: block;
-  filter: drop-shadow(0 0 40px rgba(126, 231, 135, 0.08));
-}
-.boot-readout {
-  position: absolute;
-  left: max(24px, calc(50% - 360px));
-  bottom: max(24px, calc(50% - 280px));
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--accent);
-  line-height: 1.85;
-  letter-spacing: 0.04em;
-  user-select: none;
-}
-.boot-line {
   opacity: 0;
-  transform: translateY(2px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition: opacity 1.4s ease;
+  filter: drop-shadow(0 0 60px rgba(126, 231, 135, 0.07));
 }
-.boot-line.on { opacity: 1; transform: translateY(0); }
-.boot-line.boot-lock {
-  margin-top: 6px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  color: #7ee787;
-  text-shadow: 0 0 12px rgba(126, 231, 135, 0.35);
-}
+.globe-bg.on { opacity: 0.55; }
 
-@media (max-width: 600px) {
-  .boot-readout {
-    left: 24px;
-    right: 24px;
-    bottom: 24px;
-    font-size: 11px;
+html[data-theme="light"] .globe-bg.on { opacity: 0.35; }
+
+@media (max-width: 700px) {
+  .globe-bg {
+    top: -22vh;
+    right: -28vw;
   }
+  .globe-bg.on { opacity: 0.4; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .boot-overlay { display: none !important; }
+  .globe-bg { display: none !important; }
 }
 
 
@@ -120,6 +91,12 @@ a:hover { text-decoration: underline; }
   padding: 8px 12px;
   border-radius: 8px;
   z-index: 10;
+}
+
+/* Layer all primary content above the persistent background globe */
+.hero, main, .footer {
+  position: relative;
+  z-index: 1;
 }
 
 /* HERO */
