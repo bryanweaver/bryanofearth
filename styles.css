@@ -288,6 +288,8 @@ a:hover { text-decoration: underline; }
 }
 .prompt { color: var(--accent); user-select: none; }
 #input {
+  box-sizing: content-box;
+  padding: 0;
   background: transparent;
   border: none;
   outline: none;
