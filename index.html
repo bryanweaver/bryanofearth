@@ -47,7 +47,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2026-06-15b" />
+  <link rel="stylesheet" href="styles.css?v=2026-08-20" />
 
   <!-- Structured Data: Person -->
   <script type="application/ld+json">
@@ -166,14 +166,18 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Mewscast",
-    "url": "https://github.com/bryanweaver/mewscast",
+    "url": "https://mewscast.us",
     "codeRepository": "https://github.com/bryanweaver/mewscast",
     "applicationCategory": "AI Agent",
     "operatingSystem": "Cross-platform",
     "description": "Autonomous AI journalism bot. End-to-end agent that researches, drafts, and publishes news posts to X and Bluesky without human intervention. Walter Croncat persona. Uses Grok for image generation and Claude for research, drafting, and editorial reasoning.",
     "author": { "@type": "Person", "name": "Bryan Weaver", "url": "https://bryanofearth.com" },
     "programmingLanguage": "Python",
-    "sameAs": "https://bsky.app/profile/mewscast.bsky.social",
+    "sameAs": [
+      "https://mewscast.us",
+      "https://github.com/bryanweaver/mewscast",
+      "https://bsky.app/profile/mewscast.bsky.social"
+    ],
     "license": "https://github.com/bryanweaver/mewscast/blob/main/LICENSE",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }
@@ -211,6 +215,7 @@
         <button class="chip" data-cmd="about">about</button>
         <button class="chip" data-cmd="resume">resume</button>
         <button class="chip" data-cmd="now">now</button>
+        <button class="chip" data-cmd="projects">projects</button>
         <button class="chip" data-cmd="skills">skills</button>
         <button class="chip" data-cmd="contact">contact</button>
         <button class="chip chip-ghost" data-cmd="help">help</button>
@@ -303,14 +308,14 @@
           <span class="card-foot">github.com/bryanweaver/claude-agent-kit</span>
         </a>
 
-        <a class="card" href="https://github.com/bryanweaver/mewscast" target="_blank" rel="noopener">
+        <a class="card" href="https://mewscast.us" target="_blank" rel="noopener">
           <div class="card-head">
             <span class="badge">open source · live</span>
             <span class="arrow">↗</span>
           </div>
           <h3>Mewscast</h3>
-          <p>Autonomous AI journalism bot. End-to-end agent that researches, drafts, and publishes news posts to X and Bluesky — Walter Croncat persona, Grok for image gen, Claude for research, drafting, and editorial reasoning. <span class="card-inline">see it live <span class="card-inline-link" data-href="https://bsky.app/profile/mewscast.bsky.social">@mewscast on Bluesky →</span></span></p>
-          <span class="card-foot">github.com/bryanweaver/mewscast</span>
+          <p>Autonomous AI journalism bot. End-to-end agent that researches, drafts, and publishes news posts to X and Bluesky — Walter Croncat persona, Grok for image gen, Claude for research, drafting, and editorial reasoning. <span class="card-inline">also on <span class="card-inline-link" data-href="https://bsky.app/profile/mewscast.bsky.social">Bluesky</span> · <span class="card-inline-link" data-href="https://github.com/bryanweaver/mewscast">GitHub</span></span></p>
+          <span class="card-foot">mewscast.us</span>
         </a>
 
       </div>
@@ -381,6 +386,6 @@
     })();
   </script>
 
-  <script src="app.js?v=2026-06-15b"></script>
+  <script src="app.js?v=2026-08-20"></script>
 </body>
 </html>

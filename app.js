@@ -13,11 +13,14 @@
     linkedin: "https://www.linkedin.com/in/bryanofearth/",
     stackoverflow: "https://stackoverflow.com/users/2059365/bryanofearth",
     email: "mailto:weaverb9@gmail.com",
-    bulletproof: "https://bulletprooftestprep.com",
-    mewscast: "https://github.com/bryanweaver/mewscast",
-    voteout: "https://voteouteveryone.com",
-    cak: "https://github.com/bryanweaver/claude-agent-kit",
   };
+
+  const projects = [
+    { name: "Bulletproof Test Prep", url: "https://bulletprooftestprep.com" },
+    { name: "VoteOut", url: "https://voteouteveryone.com" },
+    { name: "Claude Agent Kit", url: "https://github.com/bryanweaver/claude-agent-kit" },
+    { name: "Mewscast", url: "https://mewscast.us", extra: ["https://github.com/bryanweaver/mewscast", "https://bsky.app/profile/mewscast.bsky.social"] },
+  ];
 
   const commands = {
     help: {
@@ -41,52 +44,19 @@ spanning <span class="ok">civic tech</span>, <span class="ok">ed-tech</span>, an
 type <span class="cmd">projects</span> to see what I'm working on
 type <span class="cmd">resume</span> for the long version`,
     },
-    bulletproof: {
-      desc: "open Bulletproof Test Prep",
+    projects: {
+      desc: "list featured projects",
       run: () => {
-        open(links.bulletproof);
-        return `<span class="hdr">Bulletproof Test Prep</span> <span class="dim">— co-founder, Sep 2025–present</span>
-Adaptive learning SaaS that helps aspiring home inspectors pass the NHIE.
-Multi-tenant <span class="ok">Next.js</span> + <span class="ok">Supabase</span> platform with an intelligent quiz
-engine, taxonomy-based mastery tracking, Stripe-powered subscriptions,
-and AI-driven customer support built on Claude.
-<span class="ok">→ opening</span> bulletprooftestprep.com`;
-      },
-    },
-    voteout: {
-      desc: "open VoteOut",
-      run: () => {
-        open(links.voteout);
-        return `<span class="hdr">VoteOut</span> <span class="dim">— founder, Apr 2026–present</span>
-Nonpartisan civic platform. Address-based ballot lookup that identifies
-every federal and state incumbent. Printable pocket card plus a
-<span class="ok">Stripe + Lob</span>–powered postcard product that ships paper ballots to
-voters. Integrates Google Civic, OpenFEC, and OpenStates APIs.
-<span class="ok">→ opening</span> voteouteveryone.com`;
-      },
-    },
-    cak: {
-      desc: "open Claude Agent Kit",
-      run: () => {
-        open(links.cak);
-        return `<span class="hdr">Claude Agent Kit</span> <span class="dim">— published plugin</span>
-Claude Code plugin that coordinates <span class="ok">7 specialized AI agents</span> and
-<span class="ok">12 workflow skills</span> for parallel feature shipping, testing, and
-deployment.
-<span class="ok">→ opening</span> github.com/bryanweaver/claude-agent-kit`;
-      },
-    },
-    mewscast: {
-      desc: "open Mewscast",
-      run: () => {
-        open(links.mewscast);
-        return `<span class="hdr">Mewscast</span> <span class="dim">— live AI agent</span>
-Autonomous AI journalism bot. End-to-end agent that researches, drafts,
-and publishes news posts to X and Bluesky without human intervention.
-Walter Croncat persona. <span class="ok">Grok</span> for image gen; <span class="ok">Claude</span> for research,
-drafting, and editorial reasoning.
-<span class="dim">live at <a href="https://bsky.app/profile/mewscast.bsky.social" target="_blank" rel="noopener">@mewscast on Bluesky</a></span>
-<span class="ok">→ opening</span> github.com/bryanweaver/mewscast`;
+        const rows = projects.map(p => {
+          let line = `  <span class="cmd">${escape(p.name).padEnd(22)}</span><a href="${p.url}" target="_blank" rel="noopener">${p.url}</a>`;
+          if (p.extra) {
+            p.extra.forEach(u => {
+              line += `\n  <span class="dim">${" ".repeat(22)}</span><a href="${u}" target="_blank" rel="noopener" class="dim">${u}</a>`;
+            });
+          }
+          return line;
+        }).join("\n");
+        return `<span class="hdr">Featured projects</span>\n${rows}`;
       },
     },
     resume: {
@@ -166,9 +136,13 @@ drafting, and editorial reasoning.
     "h": "help",
     "cv": "resume",
     "exit": "clear",
-    "claude-agent-kit": "cak",
-    "btp": "bulletproof",
     "status": "now",
+    "btp": "projects",
+    "bulletproof": "projects",
+    "voteout": "projects",
+    "cak": "projects",
+    "claude-agent-kit": "projects",
+    "mewscast": "projects",
   };
 
   // ---- IO ----
