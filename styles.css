@@ -284,6 +284,7 @@ a:hover { text-decoration: underline; }
   align-items: center;
   gap: 8px;
   padding-top: 6px;
+  flex-wrap: nowrap;
 }
 .prompt { color: var(--accent); user-select: none; }
 #input {
@@ -293,17 +294,26 @@ a:hover { text-decoration: underline; }
   color: var(--fg);
   font-family: var(--mono);
   font-size: 14px;
-  flex: 1;
-  caret-color: var(--accent);
+  width: 1ch;
+  min-width: 1ch;
+  max-width: calc(100% - 24px);
+  caret-color: transparent;
+}
+#input::placeholder {
+  color: var(--muted);
+}
+#input:focus::placeholder {
+  color: transparent;
 }
 .cursor {
-  width: 8px;
-  height: 16px;
+  width: 0.55em;
+  height: 1.15em;
   background: var(--accent);
   display: inline-block;
+  vertical-align: text-bottom;
   animation: blink 1.05s steps(2) infinite;
-  margin-left: -6px;
   opacity: 0.85;
+  flex-shrink: 0;
 }
 @keyframes blink {
   50% { opacity: 0; }

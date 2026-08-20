@@ -277,26 +277,54 @@ type <span class="cmd">resume</span> for the long version`,
   setTheme(localStorage.getItem(THEME_KEY) || "dark");
   themeToggle.addEventListener("click", toggleTheme);
 
+  // ---- Input width auto-sizing (for block cursor positioning) ----
+  function syncInputWidth() {
+    const len = input.value.length || 1;
+    input.style.width = len + "ch";
+  }
+  input.addEventListener("input", syncInputWidth);
+  syncInputWidth();
+
+  // ---- Type-to-terminal: global keydown focuses terminal input ----
+  document.addEventListener("keydown", (e) => {
+    if (e.target === input) return;
+    const tag = e.target.tagName;
+    if (tag === "INPUT" || tag === "TEXTAREA" || e.target.isContentEditable) return;
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === "Escape" || e.key === "Tab" || e.key.startsWith("F") && e.key.length > 1) return;
+    if (e.key.length !== 1) return;
+    input.focus({ preventScroll: true });
+    input.value += e.key;
+    syncInputWidth();
+    e.preventDefault();
+    const termRect = input.getBoundingClientRect();
+    const inView = termRect.top >= 0 && termRect.bottom <= window.innerHeight;
+    if (!inView) {
+      input.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  });
+
   // ---- Input handling ----
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
       const v = input.value;
       input.value = "";
+      syncInputWidth();
       pushHistory(v.trim());
       run(v);
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
-      if (histIdx > 0) { histIdx--; input.value = history[histIdx] || ""; }
+      if (histIdx > 0) { histIdx--; input.value = history[histIdx] || ""; syncInputWidth(); }
     } else if (e.key === "ArrowDown") {
       e.preventDefault();
-      if (histIdx < history.length) { histIdx++; input.value = history[histIdx] || ""; }
+      if (histIdx < history.length) { histIdx++; input.value = history[histIdx] || ""; syncInputWidth(); }
     } else if (e.key === "Tab") {
       e.preventDefault();
       const v = input.value.trim().toLowerCase();
       if (!v) return;
       const match = Object.keys(commands).find((k) => k.startsWith(v));
-      if (match) input.value = match;
+      if (match) { input.value = match; syncInputWidth(); }
     } else if (e.key === "l" && (e.ctrlKey || e.metaKey)) {
       e.preventDefault();
       commands.clear.run();
