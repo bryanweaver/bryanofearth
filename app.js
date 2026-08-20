@@ -280,7 +280,8 @@ type <span class="cmd">resume</span> for the long version`,
   // ---- Input width auto-sizing (for block cursor positioning) ----
   function syncInputWidth() {
     const len = input.value.length || 1;
-    input.style.width = len + "ch";
+    input.style.width = (len + 0.1) + "ch";
+    input.scrollLeft = 0;
   }
   input.addEventListener("input", syncInputWidth);
   syncInputWidth();
