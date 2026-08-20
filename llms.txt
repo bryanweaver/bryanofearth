@@ -12,7 +12,7 @@ Email: weaverb9@gmail.com
 ## Current focus
 
 - Maintained at: https://bryanofearth.com/now.json
-- Building Google Ads launch for Bulletproof Test Prep
+- The Comments Band — turning viral comment sections into songs, then a public catalog of the episodes
 - Reading "Build a Large Language Model (from Scratch)" by Sebastian Raschka
 - Learning agent evaluation frameworks
 
@@ -39,8 +39,8 @@ Founder (since Apr 2026). Nonpartisan civic-tech platform. Address-based ballot 
 ### Claude Agent Kit — https://github.com/bryanweaver/claude-agent-kit
 Open-source Claude Code plugin that coordinates seven specialized AI agents and twelve workflow skills for parallel feature shipping, testing, and deployment. Published and live.
 
-### Mewscast — https://github.com/bryanweaver/mewscast
-Autonomous AI journalism bot, live as @mewscast on Bluesky. End-to-end agent that researches, drafts, and publishes news posts to X and Bluesky without human intervention. Walter Croncat persona. Uses Grok for image generation and Claude for research, drafting, and editorial reasoning.
+### Mewscast — https://mewscast.us
+Autonomous AI journalism bot, live as @mewscast on Bluesky. End-to-end agent that researches, drafts, and publishes news posts to X and Bluesky without human intervention. Walter Croncat persona. Uses Grok for image generation and Claude for research, drafting, and editorial reasoning. Source: https://github.com/bryanweaver/mewscast
 
 ## Stack
 
