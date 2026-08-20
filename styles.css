@@ -291,6 +291,8 @@ a:hover { text-decoration: underline; }
   background: transparent;
   border: none;
   outline: none;
+  padding: 0;
+  box-sizing: content-box;
   color: var(--fg);
   font-family: var(--mono);
   font-size: 14px;
