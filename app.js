@@ -19,7 +19,7 @@
     { name: "Bulletproof Test Prep", url: "https://bulletprooftestprep.com" },
     { name: "VoteOut", url: "https://voteouteveryone.com" },
     { name: "Claude Agent Kit", url: "https://github.com/bryanweaver/claude-agent-kit" },
-    { name: "Mewscast", url: "https://mewscast.us", extra: ["https://github.com/bryanweaver/mewscast", "https://bsky.app/profile/mewscast.bsky.social"] },
+    { name: "Mewscast", url: "https://mewscast.us" },
   ];
 
   const commands = {
