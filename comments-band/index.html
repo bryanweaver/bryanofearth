@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>The Comments Band — Draft Uploader</title>
+  <meta name="description" content="Comments Band Draft Uploader — a private tool for uploading finished Comments Band videos to TikTok as drafts." />
+  <meta name="author" content="Bryan Weaver" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0b0f14" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f7f9fc" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="dark light" />
+
+  <link rel="canonical" href="https://bryanofearth.com/comments-band/" />
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <style>
+    .page-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 64px 24px;
+    }
+    .page-header {
+      margin-bottom: 32px;
+    }
+    .page-header h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      margin: 0 0 8px;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+    }
+    .page-header .subtitle {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--fg-dim);
+    }
+    .content {
+      line-height: 1.7;
+      color: var(--fg-dim);
+    }
+    .content p {
+      margin: 0 0 20px;
+    }
+    .content a {
+      color: var(--accent-2);
+    }
+    .content a:hover {
+      color: var(--accent);
+    }
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 28px;
+      font-family: var(--mono);
+      font-size: 13px;
+    }
+    .nav-links a {
+      color: var(--fg-dim);
+      text-decoration: none;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+    .nav-links a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .external-links {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .external-links h2 {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0 0 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .external-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .external-links li a {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--fg-dim);
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .back-link:hover {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <main class="page-wrap">
+    <a class="back-link" href="/">← bryanofearth.com</a>
+
+    <header class="page-header">
+      <h1>The Comments Band</h1>
+      <p class="subtitle">Comments Band Draft Uploader</p>
+    </header>
+
+    <div class="content">
+      <p>
+        Comments Band Draft Uploader is a private tool that uploads finished Comments Band videos
+        to the <a href="https://www.tiktok.com/@thecommentsband" target="_blank" rel="noopener">@thecommentsband</a>
+        TikTok inbox as drafts. Bryan Weaver (the account owner) then reviews and publishes each video
+        from the TikTok app.
+      </p>
+      <p>
+        This is a personal sandbox application — not a public service. There is no sign-up.
+        Only the @thecommentsband account is authorized as a target user.
+      </p>
+
+      <nav class="nav-links">
+        <a href="/comments-band/terms">Terms of Service</a>
+        <a href="/comments-band/privacy">Privacy Policy</a>
+      </nav>
+
+      <div class="external-links">
+        <h2>Find The Comments Band</h2>
+        <ul>
+          <li><a href="https://www.tiktok.com/@thecommentsband" target="_blank" rel="noopener">TikTok →</a></li>
+          <li><a href="https://www.youtube.com/@thecommentsband" target="_blank" rel="noopener">YouTube →</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const stored = localStorage.getItem("theme");
+    if (stored) document.documentElement.setAttribute("data-theme", stored);
+  </script>
+</body>
+</html>
