@@ -279,7 +279,7 @@ type <span class="cmd">resume</span> for the long version`,
 
   // ---- Input width auto-sizing (for block cursor positioning) ----
   function syncInputWidth() {
-    const len = input.value.length || input.placeholder.length || 1;
+    const len = input.value.length || 1;
     input.style.width = len + "ch";
   }
   input.addEventListener("input", syncInputWidth);
@@ -294,6 +294,9 @@ type <span class="cmd">resume</span> for the long version`,
     if (e.key === "Escape" || e.key === "Tab" || e.key.startsWith("F") && e.key.length > 1) return;
     if (e.key.length !== 1) return;
     input.focus({ preventScroll: true });
+    input.value += e.key;
+    syncInputWidth();
+    e.preventDefault();
     const termRect = input.getBoundingClientRect();
     const inView = termRect.top >= 0 && termRect.bottom <= window.innerHeight;
     if (!inView) {
