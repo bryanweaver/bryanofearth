@@ -1,6 +1,6 @@
 # Bryan Weaver (bryanofearth)
 
-> Senior software developer in Houston, Texas, with roughly 12 years of production experience. Currently at Pennymac shipping developer tooling and leading LLM adoption org-wide. On the side, co-founded Bulletproof Test Prep, founded Vote Out Everyone LLC (VoteOut), and authored the open-source Claude Agent Kit and Mewscast.
+> Senior software developer in Houston, Texas, with roughly 12 years of production experience. Currently at Pennymac shipping developer tooling and leading LLM adoption org-wide. On the side, co-founded Bulletproof Test Prep, founded Vote Out Everyone LLC (VoteOut), authored the open-source Claude Agent Kit and Mewscast, and created The Comments Band.
 
 Primary site: https://bryanofearth.com
 Resume: https://bryanweaver.github.io/resume/
@@ -41,6 +41,9 @@ Open-source Claude Code plugin that coordinates seven specialized AI agents and 
 
 ### Mewscast — https://mewscast.us
 Autonomous AI journalism bot, live as @mewscast on Bluesky. End-to-end agent that researches, drafts, and publishes news posts to X and Bluesky without human intervention. Walter Croncat persona. Uses Grok for image generation and Claude for research, drafting, and editorial reasoning. Source: https://github.com/bryanweaver/mewscast
+
+### The Comments Band — https://comments-band.pages.dev
+Turns viral videos' comment sections into songs. Every lyric is a real comment. Also on YouTube (https://www.youtube.com/@thecommentsband) and TikTok (https://www.tiktok.com/@thecommentsband). Privacy: https://comments-band.pages.dev/privacy · Terms: https://comments-band.pages.dev/terms
 
 ## Stack
 
