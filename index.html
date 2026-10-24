@@ -47,7 +47,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2026-08-20c" />
+  <link rel="stylesheet" href="styles.css?v=2026-10-24" />
 
   <!-- Structured Data: Person -->
   <script type="application/ld+json">
@@ -180,6 +180,22 @@
     ],
     "license": "https://github.com/bryanweaver/mewscast/blob/main/LICENSE",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <!-- Structured Data: The Comments Band (CreativeWork) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "The Comments Band",
+    "url": "https://comments-band.pages.dev",
+    "description": "Turns viral videos' comment sections into songs. Every lyric is a real comment.",
+    "author": { "@type": "Person", "name": "Bryan Weaver", "url": "https://bryanofearth.com" },
+    "sameAs": [
+      "https://www.youtube.com/@thecommentsband",
+      "https://www.tiktok.com/@thecommentsband"
+    ]
   }
   </script>
 
@@ -318,6 +334,16 @@
           <span class="card-foot">mewscast.us</span>
         </a>
 
+        <a class="card" href="https://comments-band.pages.dev" target="_blank" rel="noopener">
+          <div class="card-head">
+            <span class="badge">live</span>
+            <span class="arrow">↗</span>
+          </div>
+          <h3>The Comments Band</h3>
+          <p>Turns viral videos' comment sections into songs. Every lyric is a real comment. <span class="card-inline">also on <span class="card-inline-link" data-href="https://www.youtube.com/@thecommentsband">YouTube</span> · <span class="card-inline-link" data-href="https://www.tiktok.com/@thecommentsband">TikTok</span></span></p>
+          <span class="card-foot">comments-band.pages.dev</span>
+        </a>
+
       </div>
     </section>
   </main>
@@ -386,6 +412,6 @@
     })();
   </script>
 
-  <script src="app.js?v=2026-08-20c"></script>
+  <script src="app.js?v=2026-10-24"></script>
 </body>
 </html>

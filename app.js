@@ -20,6 +20,7 @@
     { name: "VoteOut", url: "https://voteouteveryone.com" },
     { name: "Claude Agent Kit", url: "https://github.com/bryanweaver/claude-agent-kit" },
     { name: "Mewscast", url: "https://mewscast.us" },
+    { name: "The Comments Band", url: "https://comments-band.pages.dev" },
   ];
 
   const commands = {
@@ -143,6 +144,8 @@ type <span class="cmd">resume</span> for the long version`,
     "cak": "projects",
     "claude-agent-kit": "projects",
     "mewscast": "projects",
+    "comments-band": "projects",
+    "cb": "projects",
   };
 
   // ---- IO ----
